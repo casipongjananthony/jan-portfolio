@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jan Anthony Casipong |Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --primary:#1abc9c;
+    --dark:#0f172a;
+    --light:#ffffff;
+    --glass:rgba(255,255,255,0.1);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(-45deg,#1abc9c,#3498db,#9b59b6,#1abc9c);
+    background-size:400% 400%;
+    animation:gradient 12s ease infinite;
+    color:#fff;
+    transition:0.4s;
+    overflow-x:hidden;
+}
+
+body.light{
+    background:#f4f6f9;
+    color:#111;
+}
+
+@keyframes gradient{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* Progress Bar */
+#progress{
+    position:fixed;
+    top:0;
+    left:0;
+    height:4px;
+    width:0%;
+    background:#fff;
+    z-index:2000;
+}
+
+/* NAV */
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 30px;
+    backdrop-filter:blur(15px);
+    background:var(--glass);
+    z-index:1000;
+}
+
+nav .links{
+    display:flex;
+    gap:20px;
+}
+
+nav a{
+    text-decoration:none;
+    color:inherit;
+    font-weight:500;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:var(--primary);
+}
+
+.hamburger{
+    display:none;
+    flex-direction:column;
+    cursor:pointer;
+}
+.hamburger div{
+    width:25px;
+    height:3px;
+    background:#fff;
+    margin:4px 0;
+}
+
+/* HEADER */
+header{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+}
+
+header img{
+    width:200px;
+    height:200px;
+    border-radius:50%;
+    object-fit:cover;
+    border:4px solid #fff;
+    animation:float 4s ease-in-out infinite;
+    box-shadow:0 15px 40px rgba(0,0,0,0.4);
+}
+
+@keyframes float{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-20px);}
+    100%{transform:translateY(0);}
+}
+
+h1{
+    font-size:50px;
+    margin-top:20px;
+}
+
+.typing{
+    margin-top:10px;
+    font-size:20px;
+    height:30px;
+}
+
+/* SECTIONS */
+section{
+    padding:100px 10%;
+    opacity:0;
+    transform:translateY(40px);
+    transition:1s;
+}
+
+section.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.card{
+    background:var(--glass);
+    backdrop-filter:blur(10px);
+    padding:25px;
+    border-radius:15px;
+    margin-top:20px;
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    background:rgba(255,255,255,0.2);
+}
+
+/* SKILLS */
+.skill{
+    margin-bottom:15px;
+}
+.bar{
+    height:8px;
+    background:rgba(255,255,255,0.3);
+    border-radius:10px;
+    overflow:hidden;
+}
+.bar div{
+    height:100%;
+    width:0;
+    background:#fff;
+    transition:2s;
+}
+
+/* BUTTON */
+.btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:10px 20px;
+    background:var(--primary);
+    color:#fff;
+    border-radius:25px;
+    text-decoration:none;
+    transition:0.3s;
+}
+.btn:hover{
+    transform:scale(1.1);
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:30px;
+    background:rgba(0,0,0,0.3);
+}
+
+/* MOBILE */
+@media(max-width:768px){
+    .links{
+        position:absolute;
+        top:60px;
+        right:-100%;
+        flex-direction:column;
+        background:var(--glass);
+        width:200px;
+        padding:20px;
+        transition:0.3s;
+    }
+    .links.active{
+        right:0;
+    }
+    .hamburger{
+        display:flex;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div id="progress"></div>
+
+<nav>
+<div><b>JAN</b></div>
+<div class="links" id="navLinks">
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+<a href="#" onclick="toggleMode()">🌙</a>
+</div>
+<div class="hamburger" onclick="toggleMenu()">
+<div></div><div></div><div></div>
+</div>
+</nav>
+
+<header>
+<img src="ja.jpg" alt="Profile">
+<h1>Jan Anthony Casipong</h1>
+<div class="typing" id="typing"></div>
+<a href="#" class="btn">Download CV</a>
+</header>
+
+<section id="about">
+<h2>About Me</h2>
+<div class="card">
+<p>I am a passionate BSIT student who enjoys building modern websites and solving real-world problems through technology.</p>
+</div>
+</section>
+
+<section id="skills">
+<h2>Skills</h2>
+
+<div class="skill">
+<p>HTML & CSS</p>
+<div class="bar"><div style="width:90%"></div></div>
+</div>
+
+<div class="skill">
+<p>JavaScript</p>
+<div class="bar"><div style="width:75%"></div></div>
+</div>
+
+<div class="skill">
+<p>Python</p>
+<div class="bar"><div style="width:70%"></div></div>
+</div>
+
+</section>
+
+<section id="projects">
+<h2>Projects</h2>
+<div class="card">Mikusina Ordering System</div>
+<div class="card">Simple Calculator</div>
+</section>
+
+<section id="contact">
+<h2>Contact</h2>
+<div class="card">
+<p>Email: casipongjananthony@gmail.com</p>
+<p>Phone: <a href="tel:09090672208">09090672208</a></p>
+<p>GitHub: github.com/jananthony</p>
+</div>
+</section>
+
+<footer>
+© 2026 Jan Anthony Casipong | Portfolio 
+</footer>
+
+<script>
+// Mobile Menu
+function toggleMenu(){
+document.getElementById("navLinks").classList.toggle("active");
+}
+
+// Dark Mode
+function toggleMode(){
+document.body.classList.toggle("light");
+}
+
+// Typing Effect
+const texts=["Future Web Developer","Creative Programmer","Passionate IT Student"];
+let count=0,index=0,currentText="",letter="";
+(function type(){
+if(count===texts.length){count=0;}
+currentText=texts[count];
+letter=currentText.slice(0,++index);
+document.getElementById("typing").textContent=letter;
+if(letter.length===currentText.length){
+count++;
+index=0;
+setTimeout(type,1000);
+}else{
+setTimeout(type,100);
+}
+})();
+
+// Scroll Reveal + Progress
+window.addEventListener("scroll",()=>{
+document.querySelectorAll("section").forEach(sec=>{
+if(window.scrollY>sec.offsetTop-400){
+sec.classList.add("show");
+}
+});
+
+let winScroll=document.documentElement.scrollTop;
+let height=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+document.getElementById("progress").style.width=(winScroll/height)*100+"%";
+});
+</script>
+
+</body>
+</html>
